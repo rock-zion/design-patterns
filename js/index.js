@@ -71,5 +71,5 @@ catCount.textContent = `${currentCat.name} has been clicked ${currentCat.count} 
 
 catImg.addEventListener("click", function () {
   catCount.textContent = `${currentCat.name}  has been
-    clicked ${++currentCat.count}`;
+    clicked ${++currentCat.count} times`;
 });
