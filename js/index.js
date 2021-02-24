@@ -49,18 +49,25 @@ for (let index = 0; index < myCats.length; index++) {
   let catItem = document.createElement("li");
   catItem.innerHTML = myCats[index].name;
 
+  const setCurrentCat = (cat) => {
+    //set the current cat
+  };
+
   catItem.addEventListener(
     "click",
     (function (catCopy) {
       return function () {
-        catImg.src = catCopy.img;
-        catCopy.textContent = ` has been clicked ${catCopy.count}`;
+        setCurrentCat(catCopy);
       };
     })(cat)
   );
-
   catList.appendChild(catItem);
 }
 
 catImg.src = currentCat.img;
 catCount.textContent = `${currentCat.name} has been clicked ${currentCat.count} times`;
+
+catImg.addEventListener("click", function () {
+  catCount.textContent = `${currentCat.name}  has been
+    clicked ${++currentCat.count}`;
+});
