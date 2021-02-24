@@ -50,7 +50,9 @@ for (let index = 0; index < myCats.length; index++) {
   catItem.innerHTML = myCats[index].name;
 
   const setCurrentCat = (cat) => {
-    //set the current cat
+    currentCat = cat;
+    catImg.src = currentCat.img;
+    catCount.textContent = `${currentCat.name} has been clicked ${currentCat.count} times`;
   };
 
   catItem.addEventListener(
