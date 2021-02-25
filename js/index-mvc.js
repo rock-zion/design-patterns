@@ -23,5 +23,10 @@ let controller = {
 };
 
 /* >>> VIEW <<< */
-
+let view = {
+  init: function () {
+    this.render();
+  },
+  render: function () {},
+};
 controller.init();
