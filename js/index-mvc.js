@@ -13,8 +13,19 @@ let controller = {
     this.render();
   },
 
+  incrememtCounter: function () {
+    let currentCat = model.currentCat;
+    ++currentCat.count;
+    view.selectCat();
+  },
+
   getCats: function () {
     return model.myCats;
+  },
+
+  setCurrentCat: function (currentCat) {
+    model.currentCat = currentCat;
+    view.selectCat();
   },
 
   render: function () {
@@ -30,13 +41,16 @@ let view = {
     this.catImg = document.querySelector("#cat-img");
     this.catPrompt = document.querySelector("#prompt");
 
+    //add event listener to image
+    this.catImg.addEventListener("click", controller.incrememtCounter);
+
     this.render();
     this.selectCat();
   },
   selectCat: function () {
     let currentCat = model.currentCat;
     this.catImg.src = currentCat.img;
-    this.catPrompt = `click on ${currentCat.name}'s picture to increase the count`;
+    this.catPrompt.textContent = `click on ${currentCat.name}'s picture to increase the count`;
     this.catCount.innerHTML = `<span id="bold">${currentCat.name} &nbsp; </span> has been clicked &nbsp; <span id="bold">${currentCat.count}</span> &nbsp; times`;
   },
 
